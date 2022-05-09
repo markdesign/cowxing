@@ -1,0 +1,12 @@
+# docker-compose up --build --force-recreate
+version: '3'
+
+services:
+  client:
+    image: cowxing_client
+    container_name: cowxing_client
+    restart: always
+    build: .
+    ports:
+      - '3300:3000'
+ 
