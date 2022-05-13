@@ -14,7 +14,7 @@ const Home: NextPage = () => {
 
             <main className={styles.main}>
                 <h1>hello world</h1>
-                <p>version 1</p>
+                <p>version 2</p>
             </main>
         </div>
     );
