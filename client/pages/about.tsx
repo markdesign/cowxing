@@ -1,9 +1,10 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 import styles from "../styles/Home.module.css";
 
-const Home: NextPage = () => {
+const About: NextPage = () => {
     return (
         <div className={styles.container}>
             <Head>
@@ -13,11 +14,13 @@ const Home: NextPage = () => {
             </Head>
 
             <main className={styles.main}>
-                <h1>hello world</h1>
-                <p>version 3</p>
+                <h1>About page</h1>
+                <Link href="/playground/youtube_jack_herrington/ssr_and_ssg">
+                    <a>/playground/youtube_jack_herrington/ssr_and_ssg</a>
+                </Link>
             </main>
         </div>
     );
 };
 
-export default Home;
+export default About;
