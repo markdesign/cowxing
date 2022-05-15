@@ -1,0 +1,14 @@
+FROM node:16-alpine
+
+WORKDIR /app
+EXPOSE 4000 
+
+# Copy package here then npm install so this is cached.
+# npm install will only run when package has changed
+COPY package.json package-lock.json ./
+RUN npm install --silent
+
+# copy again to make sure npm install is not run again
+COPY . ./
+
+CMD ["npm", "run", "dev"]

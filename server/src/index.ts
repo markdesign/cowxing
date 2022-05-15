@@ -1,5 +1,9 @@
-const express = require('express');
-const process = require('process');
+import express, { Request, Response } from "express";
+import dotenv from "dotenv";
+
+const process = require("process");
+
+dotenv.config();
 
 // support ctrl-c
 process.on("SIGINT", function () {
@@ -14,9 +18,9 @@ process.on("SIGTERM", function () {
 });
 
 const app = express();
-app.get('/', (req, res) => {
-    res.send('Hello World !' )
-})
+app.get("/", (req: Request, res: Response) => {
+    res.send("Hello World! 9");
+});
 app.listen(4000, () => {
-    console.log('Listening');
+    console.log("Listening");
 });

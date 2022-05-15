@@ -1,15 +1,18 @@
-version: '3'
+version: '3.4'
 
 services:
-  client:
+  server:
     image: cowxing_server
     container_name: cowxing_server
     restart: always
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
     ports:
-      - '4999:4000'
+      - '4301:4000'
     volumes:
       - /app/node_modules
-      - .:/app
+      - ./:/app
     environment:
       - CHOKIDAR_USEPOLLING=true
+    # command: npm run dev

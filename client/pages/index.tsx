@@ -14,7 +14,11 @@ const Home: NextPage = () => {
 
             <main className={styles.main}>
                 <h1>hello world</h1>
+<<<<<<< HEAD
                 <p>version 3</p>
+=======
+                <p>version 1</p>
+>>>>>>> parent of 01269eb (update docker compose dev for server)
             </main>
         </div>
     );
