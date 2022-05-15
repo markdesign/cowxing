@@ -13,14 +13,14 @@ export async function getStaticPaths() {
     const pokemon = await resp.json();
 
     return {
-        paths: pokemon.map(pokemon => ({
+        paths: pokemon.map((pokemon: any) => ({
             params: { id: pokemon.id.toString() },
         })),
         fallback: false,
     };
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params }: { params: any }) {
     const response = await fetch(`https://jherr-pokemon.s3.us-west-1.amazonaws.com/pokemon/${params.id}.json`);
     return {
         props: {
@@ -30,8 +30,8 @@ export async function getStaticProps({ params }) {
     };
 }
 
-export default function Details({ pokemon }) {
-    if (!pokemon) return null;
+export default function Details({ pokemon }: { pokemon: any }) {
+    if (!pokemon || Object.keys(pokemon).length === 0) return null;
 
     return (
         <div>
@@ -63,7 +63,7 @@ export default function Details({ pokemon }) {
                             </tr>
                         </thead>
                         <tbody>
-                            {pokemon.stats.map(({ name, value }) => (
+                            {pokemon.stats.map(({ name, value }: { name: string; value: string }) => (
                                 <tr key={name}>
                                     <td className={styles.attribute}>{name}</td>
                                     <td>{value}</td>

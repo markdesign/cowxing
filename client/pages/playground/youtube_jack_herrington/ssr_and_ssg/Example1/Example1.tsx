@@ -10,7 +10,7 @@ import Link from "next/link";
  * check the source code. there is nothing in the page.
  */
 const Example1: NextPage = ({}) => {
-    const [pokemon, setPokemon] = useState([]);
+    const [pokemon, setPokemon] = useState<any[]>([]);
 
     useEffect(() => {
         async function getPokemon() {
