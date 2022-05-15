@@ -7,7 +7,7 @@ import styles from "../../Details.module.scss";
 /**
  * 2. EXAMPLE OF SERVER SIDE RENDERING
  */
-export async function getServerSideProps({ params }) {
+export async function getServerSideProps({ params }: any) {
     console.log("[[id].tsx 12] params : ", params);
     const response = await fetch(`https://jherr-pokemon.s3.us-west-1.amazonaws.com/pokemon/${params.id}.json`);
     return {
@@ -17,8 +17,8 @@ export async function getServerSideProps({ params }) {
     };
 }
 
-export default function Details({ pokemon }) {
-    if (!pokemon) return null;
+export default function Details({ pokemon }: any) {
+    if (!pokemon || Object.keys(pokemon).length === 0) return null;
 
     return (
         <div>
@@ -50,7 +50,7 @@ export default function Details({ pokemon }) {
                             </tr>
                         </thead>
                         <tbody>
-                            {pokemon.stats.map(({ name, value }) => (
+                            {pokemon.stats.map(({ name, value }: { name: string; value: string }) => (
                                 <tr key={name}>
                                     <td className={styles.attribute}>{name}</td>
                                     <td>{value}</td>

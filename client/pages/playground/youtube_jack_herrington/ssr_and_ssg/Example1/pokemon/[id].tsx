@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
-import styles from "./Details.module.scss";
+import styles from "../../Details.module.scss";
 import { useRouter } from "next/router";
 
 /**
@@ -15,7 +15,7 @@ export default function Details({}) {
         query: { id },
     } = useRouter();
 
-    const [pokemon, setPokemon] = useState(null);
+    const [pokemon, setPokemon] = useState<any>({});
 
     useEffect(() => {
         async function getPokemon() {
@@ -26,7 +26,8 @@ export default function Details({}) {
         getPokemon();
     }, [id]);
 
-    if (!pokemon) return null;
+    if (!pokemon || Object.keys(pokemon).length === 0) return null;
+    console.log('[[id].tsx 30] pokemon : ', pokemon);
 
     return (
         <div>
@@ -58,7 +59,7 @@ export default function Details({}) {
                             </tr>
                         </thead>
                         <tbody>
-                            {pokemon.stats.map(({ name, value }) => (
+                            {pokemon.stats.map(({ name, value }: { name: string; value: string }) => (
                                 <tr key={name}>
                                     <td className={styles.attribute}>{name}</td>
                                     <td>{value}</td>
