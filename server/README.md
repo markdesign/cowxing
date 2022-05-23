@@ -1,3 +1,8 @@
+# Local Development
+
+## run dev
+docker-compose -f ./docker-compose.dev.yml up
+
 # initial setup
 
 npm i express dotenv
@@ -35,7 +40,7 @@ docker-compose up --build
 $ npm install <pacakgename>
 $ docker stop cowxing_server
 $ docker rm cowxing_server
-$ docker-compose -f ./docker-compose.dev.yml up -d --build
+$ docker-compose -f ./docker-compose.dev.yml up --build
 ```
 
 # build image and push to docker hub

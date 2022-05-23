@@ -2,7 +2,20 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import styles from "../styles/Home.module.css";
+import styles from "../styles/Home.module.scss";
+
+import Box from "@mui/material/Box";
+import Paper from "@mui/material/Paper";
+import Stack from "@mui/material/Stack";
+import { styled } from "@mui/material/styles";
+
+const Item = styled(Paper)(({ theme }) => ({
+    backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
+    ...theme.typography.body2,
+    padding: theme.spacing(1),
+    textAlign: "center",
+    color: theme.palette.text.secondary,
+}));
 
 const About: NextPage = () => {
     return (
@@ -15,9 +28,23 @@ const About: NextPage = () => {
 
             <main className={styles.main}>
                 <h1>About page</h1>
-                <Link href="/playground/youtube_jack_herrington/ssr_and_ssg">
-                    <a>/playground/youtube_jack_herrington/ssr_and_ssg</a>
-                </Link>
+                <Stack spacing={2}>
+                    <Item>
+                        <Link href="/playground/youtube_jack_herrington/ssr_and_ssg">
+                            <a>/playground/youtube_jack_herrington/ssr_and_ssg</a>
+                        </Link>
+                    </Item>
+                    <Item>
+                        <Link href="/playground/graphql/basics">
+                            <a>/playground/graphql/basics</a>
+                        </Link>
+                    </Item>
+                    <Item>
+                        <Link href="/playground/materialui">
+                            <a>/playground/materialui</a>
+                        </Link>
+                    </Item>
+                </Stack>
             </main>
         </div>
     );

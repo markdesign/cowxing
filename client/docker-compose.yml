@@ -9,4 +9,6 @@ services:
     build: .
     ports:
       - '3300:3000'
+    networks:
+      - main_network
  

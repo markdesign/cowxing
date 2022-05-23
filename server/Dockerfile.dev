@@ -6,7 +6,7 @@ EXPOSE 4000
 # Copy package here then npm install so this is cached.
 # npm install will only run when package has changed
 COPY package.json package-lock.json ./
-RUN npm install --silent
+RUN npm install
 
 # copy again to make sure npm install is not run again
 COPY . ./

@@ -3,7 +3,7 @@
 // https://nextjs.org/docs/basic-features/data-fetching/incremental-static-regeneration#using-on-demand-revalidation
 
 /*
-curl "http://localhost:3999/api/revalidate" \
+curl "http://localhost:3301/api/revalidate" \
     -X POST \
     -H "Content-Type: application/json" \
     -d "[\"/playground/youtube_jack_herrington/ssr_and_ssg/Example3/pokemon/1\"]"

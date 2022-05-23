@@ -1,18 +1,22 @@
 # Local Development
 
+## run dev
+docker-compose -f ./docker-compose.dev.yml up
+
 ## Install new package
 
 ```
 $ npm install <pacakgename>
-$ docker stop cowxing_client_dev
-$ docker rm cowxing_client_dev
-$ docker-compose -f ./docker-compose.dev.yml up -d 
+$ docker-compose down
+$ docker-compose -f ./docker-compose.dev.yml up
 ```
 
 ## Logs
 
 ```
 $ docker logs -f cowxing_client_dev
+
+docker exec -it <name-of-container> sh
 ```
 
 ## Restart
