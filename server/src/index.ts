@@ -1,15 +1,12 @@
 import process from "process";
-import http from "http";
-
-import express, { Request, Response } from "express";
 import dotenv from "dotenv";
 
-import { initGraphQlEndpoint } from "./graphql";
-import { database } from "./mysql/mysql";
+import { ExpressApp } from "./expressApp/ExpressApp";
+import { initGraphQlEndpoint } from "./graphql/Graphql";
 
 dotenv.config();
 
-const init = async () => {
+const system = () => {
     // support ctrl-c
     process.on("SIGINT", function () {
         console.log("Application is being interrupted...");
@@ -21,23 +18,17 @@ const init = async () => {
         console.log("Application is being terminated...");
         process.exit(0);
     });
+};
 
-    const app = express();
-    const httpServer = http.createServer(app);
+const init = async () => {
+    // System
+    system();
 
-    app.get("/", (req: Request, res: Response) => {
-        res.send("Hello World! 12");
-    });
+    // Express (mysql)
+    const { app } = await ExpressApp();
 
-    app.get("/mysql", async (req: Request, res: Response) => {
-        const result = await database.promise().query("SHOW TABLES");
-        const result2 = result[0];
-        res.send({ result2 });
-    });
-
-    await initGraphQlEndpoint(app);
-
-    await new Promise<void>(resolve => httpServer.listen({ port: 4000 }, resolve));
+    // GraphQL
+    initGraphQlEndpoint(app);
 };
 
 init();

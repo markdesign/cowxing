@@ -1,8 +1,9 @@
 # Local Development
 
 ## run dev
-docker-compose -f ./docker-compose.dev.yml up
-
+docker-compose -f ./docker-compose.dev.yml up --force-recreate
+docker-compose -f ./docker-compose.dev.yml up -V
+docker compose -f ./docker-compose.dev.yml up
 # initial setup
 
 npm i express dotenv

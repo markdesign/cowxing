@@ -1,7 +1,7 @@
 FROM node:16-alpine
 
 WORKDIR /app
-EXPOSE 4000 
+EXPOSE 4301 
 
 COPY package.json package-lock.json ./
 

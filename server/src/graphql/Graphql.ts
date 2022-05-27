@@ -8,7 +8,7 @@ import basicResolvers from "./basic/resolvers";
 
 import context from "./basic/context";
 
-export const initGraphQlEndpoint = async (app: any) => {
+const initGraphQlEndpoint = async (app: any) => {
     const schema = mergeTypeDefs([introSchema, basicSchema]);
     const resolvers = mergeResolvers([introResolvers, basicResolvers]);
 
@@ -21,5 +21,7 @@ export const initGraphQlEndpoint = async (app: any) => {
     await server.start();
     server.applyMiddleware({ app, path: "/api/v1/graphql" });
 
-    console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`);
+    console.log(`🚀 GraphQL Server ready at http://localhost:4301${server.graphqlPath}`);
 };
+
+export { initGraphQlEndpoint };
