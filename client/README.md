@@ -1,14 +1,17 @@
 # Local Development
+http://localhost:3301
 
 ## run dev
-docker-compose -f ./docker-compose.dev.yml up
+docker compose -f ./docker-compose.dev.yml up
 
 ## Install new package
-
 ```
 $ npm install <pacakgename>
-$ docker-compose down
-$ docker-compose -f ./docker-compose.dev.yml up
+$ docker stop cowxing_server
+$ docker rm cowxing_server
+$ docker-compose -f ./docker-compose.dev.yml up --force-recreate
+or
+$ docker-compose -f ./docker-compose.dev.yml up -V
 ```
 
 ## Logs
@@ -25,29 +28,12 @@ docker exec -it <name-of-container> sh
 $ docker restart cowxing_client_dev
 ```
 
-# Push to Production
-
-## build new image to docker hub
+# build image and push to docker hub
 
 ```
 $ docker build . -t markdesign/cowxing-client:latest
 $ docker push markdesign/cowxing-client
-```
 
-Log into portaienr and pull latest and run image
-
-# Notes
-
-run Dev
-docker-compose up -f ./docker-compose.dev.yml
-
-run Prod
-docker-compose up -d
-
-# build image
-
-```
-$ docker build ./client -t markdesign/cowxing-client:latest
-$ docker push markdesign/cowxing-client
+// on server
 $ docker pull markdesign/cowxing-client:latest
 ```

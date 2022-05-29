@@ -7,7 +7,6 @@ import styles from "styles/Home.module.scss";
 
 import Navigation from 'components/navigation/Navigation';
 
-
 export async function getStaticProps() {
     return {
         props: {
@@ -17,13 +16,14 @@ export async function getStaticProps() {
 }
 
 const Basics: NextPage = (props: any) => {
+    console.log('[Basics.tsx 20] props.server : ', props.server);
     const [data, setData] = useState<any[]>();
 
     useEffect(() => {
         async function getGraphQLData() {
             try {
                 const client = new ApolloClient({
-                    uri: `${props.server}/graphql`,
+                    uri: `${props.server}/api/v1/graphql`,
                     cache: new InMemoryCache(),
                 });
                 const result = await client.query({
@@ -59,5 +59,3 @@ const Basics: NextPage = (props: any) => {
 };
 
 export default Basics;
-
-//

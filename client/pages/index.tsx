@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
+
 import styles from "../styles/Home.module.scss";
 
 const Home: NextPage = () => {
@@ -22,7 +23,7 @@ const Home: NextPage = () => {
             <main className={styles.main}>
                 <h1>hello world</h1>
                 <p>version 3</p>
-                <Link href="/about">About</Link>
+                <Link href="/playground">Playground</Link>
             </main>
         </div>
     );
