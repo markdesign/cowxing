@@ -51,19 +51,7 @@ $ docker-compose -f ./docker-compose.dev.yml up -V
 ```
 $ docker build . -t markdesign/cowxing-server:latest
 $ docker push markdesign/cowxing-server
+
+// on server
 $ docker pull markdesign/cowxing-server:latest
-```
-
-# Dev notes
-
-## run Dev
-
-```
-docker-compose up -f ./docker-compose.dev.yml
-```
-
-## run Prod
-
-```
-docker-compose up -d
 ```

@@ -22,7 +22,7 @@ const Home: NextPage = () => {
 
             <main className={styles.main}>
                 <h1>hello world</h1>
-                <p>version 3</p>
+                <p>version 4</p>
                 <Link href="/playground">Playground</Link>
             </main>
         </div>
