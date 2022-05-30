@@ -1,4 +1,5 @@
 import express from "express";
+import cors from 'cors';
 import mainRoutes from "./routes/mainRoutes";
 import userRoutes from "./routes/userRoutes";
 
@@ -8,6 +9,7 @@ const ExpressApp = async () => {
     app.use(express.static("public"));
     app.use(express.urlencoded({ extended: true }));
     app.use(express.json());
+    app.use(cors());
     app.set("view engine", "ejs");
     app.set('title', 'My Site');
     app.use("/", mainRoutes);

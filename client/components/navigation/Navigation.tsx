@@ -16,12 +16,12 @@ export const NavLinks = [
         path: "/playground",
     },
     {
-        name: "graphql",
-        path: "/playground/GraphQL",
+        name: "mySQL",
+        path: "/playground/MySQL",
     },
     {
-        name: "neo4j",
-        path: "/playground/Neo4j",
+        name: "graphql",
+        path: "/playground/GraphQL",
     },
     {
         name: "youtube_jack_herrington",

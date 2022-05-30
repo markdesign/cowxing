@@ -15,37 +15,22 @@ export async function getStaticProps() {
     };
 }
 
-const GraphQL: NextPage = (props: any) => {
+const MySQL: NextPage = (props: any) => {
     console.log("[Basics.tsx 20] props.server : ", props.server);
     const [data, setData] = useState<any[]>();
-    const [neo4jData, setNeo4jData] = useState<any>();
 
     useEffect(() => {
-        async function getGraphQLData() {
+        async function getMySQLData() {
             try {
-                const client = new ApolloClient({
-                    uri: `${props.server}/api/v1/graphql`,
-                    cache: new InMemoryCache(),
-                });
-                const result = await client.query({
-                    query: gql`
-                        query Query {
-                            movies {
-                                title
-                            }
-                            me {
-                                username
-                            }
-                        }
-                    `,
-                });
-                setData(result.data);
+                const res = await fetch(`${props.server}/mysql`);
+                const result = await res.json();
+                setData(result.data[0].Tables_in_test1);
             } catch (error) {
                 console.log("error");
             }
         }
 
-        getGraphQLData();
+        getMySQLData();
     }, [props.server]);
 
     return (
@@ -56,11 +41,10 @@ const GraphQL: NextPage = (props: any) => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Navigation />
-            <h1>graph ql test</h1>
-            <p>get data from graph ql and neo4j</p>
-            <p>{JSON.stringify(data)} </p>
+            <h1>MySQL test</h1>
+            <p>{data}</p>
         </div>
     );
 };
 
-export default GraphQL;
+export default MySQL;

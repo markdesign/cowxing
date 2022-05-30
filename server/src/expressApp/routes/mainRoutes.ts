@@ -1,5 +1,5 @@
 import express, { Request, Response } from "express";
-import { database } from "../../mysql/MySQL";
+import { initializeMySQL } from "../../mysql/MySQL";
 
 const mainRoutes = express.Router();
 
@@ -8,9 +8,10 @@ mainRoutes.get("/", (req: Request, res: Response) => {
 });
 
 mainRoutes.get("/mysql", async (req: Request, res: Response) => {
-    const result = await database.promise().query("SHOW TABLES");
+    const MySQL = await initializeMySQL();
+    const result = await MySQL.promise().query("SHOW TABLES");
     const result2 = result[0];
-    res.send({ result2, title: 'foo' });
+    res.json({ data: result2 });
 });
 
 export default mainRoutes;

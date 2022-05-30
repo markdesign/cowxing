@@ -1,8 +1,13 @@
 import mysql from "mysql2";
 
-export const database = mysql.createConnection({
-    host: "mysql.cowxing.com",
-    user: "mark",
-    password: "Dcfeb5e838",
-    database: "test1",
-});
+const initializeMySQL = async () => {
+    const MySQL = await mysql.createConnection({
+        host: process.env.MYSQL_HOST,
+        user: process.env.MYSQL_USER,
+        password: process.env.MYSQL_PASSWORD,
+        database: process.env.MYSQL_DATABASE,
+    });
+    return MySQL;
+};
+
+export { initializeMySQL };
