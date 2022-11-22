@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import Link from "next/link";
-
+import Navigation from "components/navigation/Navigation";
+import NavigationData from "components/navigation/NavigationData";
 import styles from "../styles/Home.module.scss";
 
 const Home: NextPage = () => {
@@ -21,9 +21,10 @@ const Home: NextPage = () => {
             </Head>
 
             <main className={styles.main}>
-                <h1>hello world</h1>
-                <p>version 4</p>
-                <Link href="/playground">Playground</Link>
+                <Navigation navLinks={NavigationData.links} />
+                <div className={styles.hero}>
+                    <h1>Version 5</h1>
+                </div>
             </main>
         </div>
     );

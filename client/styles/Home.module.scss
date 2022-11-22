@@ -1,0 +1,17 @@
+.container {
+    height: 100%;
+    border: 10px dashed blue;
+}
+
+.main {
+    height: 100%;
+    // border: 2px dashed green;
+}
+
+.hero {
+    // border: 2px dashed red;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

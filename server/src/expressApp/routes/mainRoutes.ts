@@ -1,5 +1,5 @@
 import express, { Request, Response } from "express";
-import { initializeMySQL } from "../../mysql/MySQL";
+import { initializeMySQL } from "../../mysql/mysql";
 
 const mainRoutes = express.Router();
 

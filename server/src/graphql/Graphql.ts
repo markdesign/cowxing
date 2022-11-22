@@ -15,6 +15,8 @@ import basicResolvers from "./basic/resolvers";
 
 const initGraphQlEndpoint = async (app: any) => {
     const httpServer = http.createServer(app);
+
+    // Neo4j
     const schema = await Neo4jApp();
     const mergedTypeDef = mergeTypeDefs([introSchema, basicSchema]);
     const mergedResolver = mergeResolvers([introResolvers, basicResolvers]);

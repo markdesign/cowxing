@@ -27,7 +27,7 @@ const init = async () => {
     // Express (mysql)
     const { app } = await ExpressApp();
 
-    // GraphQL
+    // GraphQL: Neo4j, 
     initGraphQlEndpoint(app);
 };
 
